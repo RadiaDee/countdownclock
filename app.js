@@ -1,20 +1,22 @@
-let timerElement =document.getElementById("timer");   // set id from html to timerElement
-console.log(timerElement.innerText);      // print id to console
-timerElement.innerText="hey!!";     // set timer to 10 instead 
-let timeRemaining = 10;           // set counter for function
+let timerElement =document.getElementById("timer");   // grab html element and save to timerElement
+console.log(timerElement.innerText);      // print that id to console should be 5
+let timesUp = document.getElementById("times-up-message");  
+timerElement.innerText="hey!!";     // override timer id to hey!!
+let timeRemaining = 20;           // set start of counter
 
-function countdown(){             // function that counts down by 5
-  timeRemaining = timeRemaining- 1;
+function countdown(){             // function that counts down
+  timeRemaining = timeRemaining- 1;   // each time this is called decrement by 1
   console.log(timeRemaining);       // show time decrementing in console
-  timerElement.innerText = timeRemaining; // make the id from html is set to decrement
-  
-  if(timeRemaining>0){                     // if statement to stop at 0
-    timerElement.innerText = timeRemaining;       // if not 0 make id from html the decrement
+  timerElement.innerText = timeRemaining; // timer id now renders time remaining
+  // grab timer element number save as tr
+  if(timeRemaining>0){                     // if statement more than 0
+    timerElement.innerText = timeRemaining;       // show the decrement number
     }
-    else{
-    timerElement.innerText="Time is up";         // once below 0 show time is up
-    }
+  else{
+  timesUp.innerText="Time is up";         // once below 0 display time is up
+  timerElement.innerText = 0;
+  }
   
 }
 
-setInterval(countdown,1000);     // interval function that takes function and runs it per time            
+setInterval(countdown, 1000);     // interval function that takes function and runs it per time            
